@@ -3,18 +3,17 @@
 # installing Ansible
 
 1. What is ansible
-  * agentless
-  * ssh into machines 
+   * agentless
+   * ssh into machines 
 2. main components
-  * Inventory:
-   Machines involved in task executions
-  * Playbook:
-    contains one or more play
+  * Inventory: Machines involved in task executions
+  * Playbook:contains one or more play
   * module: 
-   * critcal components
-   * granular
-  * 
+    * critcal components
+    * granular
+  
 3. installing Ansible
+
 https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-ansible-on-ubuntu
 ```
 sudo apt update
