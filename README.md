@@ -21,3 +21,22 @@ sudo apt install software-properties-common
 sudo apt-add-repository --yes --update ppa:ansible/ansible
 sudo apt install ansible
 ```
+
+4. Ping servers & check os version
+* update hosts file
+```
+[linux]
+172.28.128.9
+172.28.128.10
+
+[linux:vars]
+ansible_user=vagrant
+ansible_password=vagrant
+```
+
+Command:
+```
+ansible linux -m ping
+
+ansible linux -a "cat /etc/os-release"
+```
