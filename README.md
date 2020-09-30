@@ -40,6 +40,8 @@ Command:
 ansible linux -m ping
 
 ansible linux -a "cat /etc/os-release"
+
+ansible -m shell -a "uname" linux
 ```
 
 5. Check nano is installed
@@ -65,3 +67,19 @@ ilovenano.yaml
           state: latest
 ```
 to remove change to "state: absent"
+
+6. run shell script
+
+my-script.sh
+```
+#!/bin/sh
+echo Hello World
+awk '/MemFree/ { printf "%.3f \n", $2/1024/1024 }' /proc/meminfo
+```
+
+```
+- name: copy script
+        copy: src=my-script.sh dest=/vagrant_data
+      - name: run local script
+        shell: sh /vagrant_data/my-script.sh >> /vagrant_data/script-output.txt
+```
