@@ -6,6 +6,7 @@
    * agentless
    * ssh into machines 
 2. main components
+  * Playbook -> Plays -> Tasks
   * Inventory: Machines involved in task executions
   * Playbook:contains one or more play
   * module: 
@@ -39,4 +40,27 @@ Command:
 ansible linux -m ping
 
 ansible linux -a "cat /etc/os-release"
+```
+
+5. Check nano is installed
+
+playbook to check if nano is installed on hosts
+
+to run: 
+```
+ansible-playbook ilovenano.yaml
+```
+
+ilovenano.yaml
+```
+---
+  - name: ilovenano    
+    become: true       
+    become_method: sudo
+    hosts: linux       
+    tasks:
+      - name: ensure nano is installed
+        apt:
+          name: nano
+          state: latest
 ```
