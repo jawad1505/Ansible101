@@ -64,3 +64,4 @@ ilovenano.yaml
           name: nano
           state: latest
 ```
+to remove change to "state: absent"
