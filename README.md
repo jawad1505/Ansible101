@@ -9,6 +9,9 @@
   * Playbook -> Plays -> Tasks
   * Inventory: Machines involved in task executions
   * Playbook:contains one or more play
+      * Package Management: apt, yum, maven, npm
+      * Service Handlers: to start, stop or retart our system when changes are made
+      * Configure Infrastructure: copy files, edit configuration files
   * module: 
     * critcal components
     * granular
