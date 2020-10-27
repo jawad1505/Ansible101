@@ -7,10 +7,10 @@
 ## 4. Clone awx repo
 https://github.com/ansible/awx/blob/devel/INSTALL.md#kubernetes
 
-## 5.	tune resources for low mem and cpu
+## 5.	Tune resources for low mem and cpu
 vim installer/roles/kubernetes/defaults/main.yml
 
-## update inventory
+## 6. Update inventory
 ```
 localhost ansible_connection=local ansible_python_interpreter="/usr/bin/env python3"
 
@@ -44,7 +44,7 @@ admin_password=password
 create_preload_data=True
 secret_key=awxsecret
 ```
-## 6.	run installer
+## 7.	Run installer
 
 ansible-playbook -i inventory install.yml
 
