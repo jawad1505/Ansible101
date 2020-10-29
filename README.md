@@ -25,8 +25,10 @@ sudo apt install software-properties-common
 sudo apt-add-repository --yes --update ppa:ansible/ansible
 sudo apt install ansible
 ```
+4. GEnerate ssh keys 
+github Linux101->ssh
 
-4. Ping servers & check os version
+5. Ping servers & check os version
 * update hosts file
 ```
 [linux]
@@ -47,7 +49,7 @@ ansible linux -a "cat /etc/os-release"
 ansible -m shell -a "uname" linux
 ```
 
-5. Check nano is installed
+6. Check nano is installed
 
 playbook to check if nano is installed on hosts
 
@@ -71,7 +73,7 @@ ilovenano.yaml
 ```
 to remove change to "state: absent"
 
-6. run shell script
+7. run shell script
 
 my-script.sh
 ```
