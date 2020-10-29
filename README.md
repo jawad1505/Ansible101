@@ -25,6 +25,21 @@ sudo apt install software-properties-common
 sudo apt-add-repository --yes --update ppa:ansible/ansible
 sudo apt install ansible
 ```
+uninstall ansible
+```
+sudo apt remove ansible
+```
+using python3
+```
+sudo apt install python3-pip
+sudo pip3 install ansible
+```
+
+installtion issues
+```
+https://serverfault.com/questions/1030419/ansible-pip3-install-fails
+```
+
 4. GEnerate ssh keys 
 github Linux101->ssh
 
