@@ -1,7 +1,7 @@
 there are two ways to integrate with kubernetes
 # 1. use kubectl in command
 
-Using this we can use kubectl command, see demo-kubectl folder
+Using this we can use kubectl command, see `demos/kubectl` folder
 
  * create deployment.yaml with deployment/service/namespace script
  * create inventory.yaml with kubemaster ip
@@ -9,6 +9,9 @@ Using this we can use kubectl command, see demo-kubectl folder
  * run ansible-playbook -i inventory k8s_playbook.yaml
 
 # 2. use 'community.kubernetes.k8s' collection
+
+demo:
+demos/community.kubernetes
 
 Official docs:
 https://github.com/ansible-collections/community.kubernetes
