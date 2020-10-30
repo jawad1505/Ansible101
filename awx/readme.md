@@ -1,3 +1,5 @@
+https://github.com/ansible/awx/blob/devel/INSTALL.md
+
 # Pre Reqs
 
 ## 1.	Install python
@@ -19,6 +21,8 @@ spec:
     requests:
       storage: 5Gi
 ```
+
+
 ## 4. create a Persistent Volume
 cat persistentVolume_k8sdata.yaml
 ```
@@ -40,6 +44,7 @@ spec:
     path: "/opt/k8sdata"
 
 ```
+
 ## 4. Clone awx repo
 https://github.com/ansible/awx/blob/devel/INSTALL.md#kubernetes
 
@@ -61,6 +66,7 @@ get current context and update value for `kubernetes_context`
 ```
 kubectl config get-contexts
 ```
+this method is using ansible, for helm see helm folder
 
 update inventory
 ```
