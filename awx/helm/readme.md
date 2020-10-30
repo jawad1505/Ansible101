@@ -58,5 +58,8 @@ kube apply -f awx-pv.yaml
 helm install awxtower novum-rgi-helm/awx -f values.yaml
 ```
 
-user: admin
-password: awxPassword123
+## tower creds
+user: admin; password: awxPassword123
+
+## help
+https://www.linuxsysadmins.com/install-ansible-awx-on-kubernetes/
