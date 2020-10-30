@@ -65,6 +65,7 @@ get current context and update value for `kubernetes_context`
 
 ```
 kubectl config get-contexts
+// kubernetes_context=kubernetes-admin@kubernetes
 ```
 this method is using ansible, for helm see helm folder
 
@@ -77,7 +78,7 @@ localhost ansible_connection=local ansible_python_interpreter="/usr/bin/env pyth
 dockerhub_base=ansible
 
 # Kubernetes Install
-kubernetes_context=awx-contx 
+kubernetes_context=kubernetes_context=kubernetes-admin@kubernetes
 kubernetes_namespace=ansible-awx
 kubernetes_web_svc_type=NodePort
 #Optional Kubernetes Variables
