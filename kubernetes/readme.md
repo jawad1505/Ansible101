@@ -10,6 +10,9 @@ Using this we can use kubectl command, see demo-kubectl folder
 
 # 2. use 'community.kubernetes.k8s' collection
 
+Official docs:
+https://github.com/ansible-collections/community.kubernetes
+
 Pre Reqs/Issues faced(solution):
 1. install python3
 2. install ansible using pip3
