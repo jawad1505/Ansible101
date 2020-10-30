@@ -49,3 +49,14 @@ spec:
 ```
 
 
+## commands
+
+```
+kubectl create ns awxtower
+helm repo add novum-rgi-helm https://novumrgi.github.io/helm/
+kube apply -f awx-pv.yaml
+helm install awxtower novum-rgi-helm/awx -f values.yaml
+```
+
+user: admin
+password: awxPassword123
