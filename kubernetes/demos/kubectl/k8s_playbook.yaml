@@ -1,0 +1,20 @@
+---
+  - name: ilovenano
+    become: true
+    become_method: sudo
+    hosts: kube
+    tasks:
+      
+      - name: Pinging all servers
+        action: ping
+        
+      - name: copy deployment file to kubemaster
+        copy:
+            src: deployment.yaml
+            dest: /root/
+
+      #- name: delete previous deployment 
+       # command: kubectl delete -f /root/deployment.yaml
+
+      - name: Create a k8s deployment
+        command: kubectl apply -f /root/deployment.yaml
