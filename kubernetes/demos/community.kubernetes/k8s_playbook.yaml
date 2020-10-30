@@ -1,0 +1,21 @@
+---
+  - name: ilovenano
+    #become: true
+    #become_method: sudo
+    hosts: kube
+    #vars:
+     # ansible_python_interpreter: "{{ ansible_playbook_python }}"
+    gather_facts: false
+
+    tasks:
+      
+      - name: Pinging all servers
+        action: ping
+        
+      - name: Create a k8s namespace
+        community.kubernetes.k8s:
+          name: testing-ansible-4
+          api_version: v1
+          kind: Namespace
+          state: present
+
