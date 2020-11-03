@@ -2,14 +2,15 @@
 # Steps:
 1. Create new Namespace
 2. Install Postgress
-3. install python
-4. install ansible
-5. download awx code
-6. update settings for kubernetes
-7. add tasks for migration wait
-8. add migration wait time variable
-9. update postgress settings in inventory
-10. run playbook
+3. Create AWX user in postgress
+4. install python
+5. install ansible
+6. download awx code
+7. update settings for kubernetes
+8. add tasks for migration wait
+9. add migration wait time variable
+10. update postgress settings in inventory
+11. run playbook
 
 # Pre Reqs
 helm
@@ -37,6 +38,40 @@ postgres
 ```
 helm install awx-postgres bitnami/postgresql --set volumePermissions.enabled=true
 ```
+
+## 3. Create AWX user in postgress
+
+see postgress pod logs to check if postgress is ready
+```
+kubectl logs postgres-pod
+
+//should return database is ready to accept connection
+```
+
+* login postgress 
+```
+export POSTGRES_PASSWORD=$(kubectl get secret --namespace awx awx-postgres-postgresql -o jsonpath="{.data.postgresql-password}" | base64 --decode)
+
+kubectl run awx-postgres-postgresql-client --rm --tty -i --restart='Never' --namespace awx --image docker.io/bitnami/postgresql:11.9.0-debian-10-r48 --env="PGPASSWORD=awxpass" --command -- psql --host awx-postgres-postgresql -U postgres -d postgres inv -p 5432
+```
+
+* create user awx 
+ ```
+ CREATE USER awx WITH ENCRPTED PASSWORD 'awxpass'
+ ```
+*  create awx database
+ ```
+ CREATE DATABASE awx with OWNER awx;
+ ```
+ 
+* verify
+ ```
+ \l+ 
+ \du
+ \dt
+ ```
+ 
+ 
 ## 4.	Install ansible
   ```
   pip install ansible
