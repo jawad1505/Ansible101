@@ -1,0 +1,21 @@
+---
+  - name: ilovenano
+    become: yes
+    #become_method: sudo
+    hosts: all
+    tasks:
+      - name: ensure nano is installed
+        apt:
+          name: nano
+          state: latest
+
+      - name: ensure httpd is installed
+        apt:
+          name: apache2
+          state: latest
+
+      - name: esure httpd is running
+        service:
+          name: apache2
+          state: started
+          enabled: yes
