@@ -55,6 +55,12 @@ ansible_user=vagrant
 ansible_password=vagrant
 ```
 
+* In case of ssh_pass error
+
+```
+sudo apt-get- install sshpass
+```
+
 Command:
 ```
 ansible linux -m ping
