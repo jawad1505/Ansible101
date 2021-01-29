@@ -1,0 +1,15 @@
+---
+- hosts: terraform
+  become: true
+  become_method: sudo
+  name: myfirstpb
+  tasks:
+  - name: Ensure apache is installed
+    yum:
+      name: apache2
+      state: latest
+
+  - name: Ensure apache is running
+    service:
+      name: apache2
+      state: started
