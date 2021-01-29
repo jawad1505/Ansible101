@@ -1,7 +1,6 @@
 ---
   - name: ilovenano
     become: yes
-    #become_method: sudo
     hosts: all
     tasks:
       - name: ensure nano is installed
