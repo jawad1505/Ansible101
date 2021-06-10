@@ -10,6 +10,28 @@ hostname = ansible
 ip = 192.168.10.10
 hostname = ubuntu20
 ```
+
+* setup EC2 as aws-worker
+import the stack in cloud-fromation-template  
+get the public ip and key  
+paste the public key in same dir
+```
+cat hosts.ini
+
+[workers]
+192.168.10.10
+[workers:vars]
+ansible_user=vagrant
+
+[aws]
+18.221.207.114
+
+[aws:vars]
+ansible_user=ec2-user
+ansible_ssh_private_key_file=awsdev-keypair.pem
+
+```
+
 * install python/pip/ansible on Controller
 ```
 # python
@@ -63,5 +85,26 @@ add worker in hosts.ini
 192.168.10.10
 ```
 
-* use adhoc ping to test
-ansible -i hosts.ini example -m ping -u vagrant
+* Use adhoc ping to test
+ansible -i hosts.ini example -m ping 
+```
+192.168.10.10 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+```
+
+* Use adhoc to check free memory
+```
+ansible   -i hosts.ini workers -a "free -m"
+```
+
+* Use adhoc to check free memory and ping on aws
+```
+ansible -i hosts.ini aws -a "free -m"
+
+ansible -i hosts.ini aws -m ping 
+```
