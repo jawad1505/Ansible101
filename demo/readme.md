@@ -64,6 +64,8 @@ ssh-keygen -t rsa
 ```
 
 * copy public key to worker
+you can manually copy id_rsa.pub from master to child authorized_hosts
+
 copy the id_rsa.pub and move that to worker ~/.ssh/authorized_keys
 ```
 ssh-copy-id -i ~/.ssh/<public_key_file> <user>@<remote machine>
