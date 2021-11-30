@@ -36,7 +36,7 @@ ansible_ssh_private_key_file=awsdev-keypair.pem
 ```
 # python
 sudo apt-get update
-sudo apt-get install python3.8.6 # change version as latest
+sudo apt-get install python
 python3 --version
 
 # pip
